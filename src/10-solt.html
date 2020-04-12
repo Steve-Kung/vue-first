@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <todo>
+        <todo-list slot="todo-list" v-bind:title="list"></todo-list>
+        <todo-item slot="todo-item" v-bind:item="every" v-for="every in items"></todo-item>
+    </todo>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component("todo", {
+        template: "<div>\
+                    <slot name='todo-list'></slot>\
+                        <ul>\
+                            <slot name='todo-item'></slot>\
+                        </ul>\
+                   </div>"
+    });
+    Vue.component("todo-list",{
+      props: ['title'],
+      template: "<div>{{title}}</div>"
+    });
+    Vue.component("todo-item",{
+        props: ['item'],
+        template: "<li>{{item}}</li>"
+    });
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            list: "代办列表",
+            items: [
+                "java",
+                "linux",
+                "sql"
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    {{info.links[2].name}}
+    <a v-bind:href="info.links[2].url">click</a>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data(){
+           return{
+//               请求的返回参数格式，必须和json字符串一样
+               info:{
+                   name: null,
+                   address: {
+                       uni: null,
+                       city: null,
+                       country: null
+                   },
+                   links:[
+                       {
+                           name: null,
+                           url: null
+                       }
+                   ]
+               }
+           }
+        },
+        mounted(){
+            axios.get('data.json')
+                .then(response => (this.info = response.data))
+        }
+    });
+</script>
+</body>
+</html>

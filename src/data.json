@@ -1,0 +1,25 @@
+{
+  "name": "百度1",
+  "url": "https://www.baidu.com/",
+  "page": 1,
+  "isNonProfit": true,
+  "address": {
+    "uni": "zju",
+    "city": "hz",
+    "country": "cn"
+  },
+  "links": [
+    {
+      "name": "百度1",
+      "url": "https://www.baidu.com/"
+    },
+    {
+      "name": "百度2",
+      "url": "https://www.baidu.com/"
+    },
+    {
+      "name": "百度3",
+      "url": "https://www.baidu.com/"
+    }
+  ]
+}
